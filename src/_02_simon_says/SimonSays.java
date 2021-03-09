@@ -9,6 +9,7 @@ import java.awt.Component;
 import java.awt.Frame;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.net.URL;
 import java.util.Date;
 import java.util.HashMap;
@@ -49,31 +50,40 @@ public class SimonSays extends KeyAdapter {
 
 	public void keyPressed(KeyEvent e) {
 		// 15. Make a points variable to track the score.
-
+		int score = 0;
 		// 16. If the keyCode matches the imageIndex and "Simon says"
-
+		if(e.getKeyCode() == imageIndex && simonSays()) {
+			score ++;
+			speak("Correct");
+		}
 		// 17. Increase the value of score
-
+		
 		// 18. Use the speak method to tell the user they were correct
-
+		
 		// 19. If the keyCode doesn't match the imageIndex and "Simon didn't
 		// say..."
-
+		else if(e.getKeyCode() != imageIndex && simonSays == false) {
+			score ++;
+			speak("Correct");
+		}
 		// 20. Increase the value of score
 
 		// 21. Use the speak method to tell the user they were correct
 
 		// 22. Increment tries by 1
-
+		tries ++;
 		// 25. If tries is greater than 9 (or however many you want)...
-
+		if(tries > 9) {
+			speak("Your score is" + score);
+		}
 		// 26. Tell the user their score
 
 		// 27. Exit the program
-
+		System.exit(0);
 		// 23. Dispose of the frame
-
+		frame.dispose();
 		// 24. Call the showImage method to show a new image
+		showImage();
 	}
 
 	private void showImage() {
@@ -94,12 +104,20 @@ frame.setVisible(true);
 		// 11. Add a key listener to the frame
 		frame.addKeyListener(this);
 		// 12. Create a new instance of Random
-
+		Random rand = new Random();
+		int randNum = rand.nextInt(2);
 		// 13. Use the Random and the speak method to either say
 		// "Simon says press this key" or "Press this key"
-
+		if(randNum == 0(){
+		speak("Press this key");
+		simonSays = false;
+		}
+		else {
+		speak("Simon says press this key");
+		simonSays = true;
+		}
 		// 14. Above, set the value of simonSays to true/false appropriately
-
+		
 	}
 
 	private Component getNextRandomImage() {
