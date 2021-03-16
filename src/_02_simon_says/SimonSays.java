@@ -36,9 +36,9 @@ public class SimonSays extends KeyAdapter {
 		// 2. Add the four images that match keyboard keys like this:
 		// images.put(KeyEvent.VK_UP, "up.jpg");
 		images.put(KeyEvent.VK_UP, "up.jpg");
-		images,put(KeyEvent.VK_DOWN, "down.jpg");
-		images,put(KeyEvent.VK_RIGHT, "right.jpg");
-		images,put(KeyEvent.VK_LEFT, "left.jpg");
+		images.put(KeyEvent.VK_DOWN, "down.jpg");
+		images.put(KeyEvent.VK_RIGHT, "right.jpg");
+		images.put(KeyEvent.VK_LEFT, "left.jpg");
 		// 3. Use a JOptionPane to tell the user the rules: "Press the matching
 		// key when
 		// 'Simon says' otherwise press a different key"
@@ -52,7 +52,7 @@ public class SimonSays extends KeyAdapter {
 		// 15. Make a points variable to track the score.
 		int score = 0;
 		// 16. If the keyCode matches the imageIndex and "Simon says"
-		if(e.getKeyCode() == imageIndex && simonSays()) {
+		if(e.getKeyCode() == imageIndex && simonSays) {
 			score ++;
 			speak("Correct");
 		}
@@ -79,7 +79,7 @@ public class SimonSays extends KeyAdapter {
 		// 26. Tell the user their score
 
 		// 27. Exit the program
-		System.exit(0);
+		//System.exit(0);
 		// 23. Dispose of the frame
 		frame.dispose();
 		// 24. Call the showImage method to show a new image
@@ -108,7 +108,7 @@ frame.setVisible(true);
 		int randNum = rand.nextInt(2);
 		// 13. Use the Random and the speak method to either say
 		// "Simon says press this key" or "Press this key"
-		if(randNum == 0(){
+		if(randNum == 0) {
 		speak("Press this key");
 		simonSays = false;
 		}
