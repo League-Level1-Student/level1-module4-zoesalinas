@@ -35,6 +35,7 @@ public class Jeopardy implements ActionListener {
 	private JButton firstButton;
 	private JButton secondButton;
 	private JButton thirdButton, fourthButton;
+	private JButton fifthButton;
 	private JPanel quizPanel;
 	private int score = 0;
 	private JLabel scoreBox = new JLabel("0");
@@ -70,13 +71,22 @@ public class Jeopardy implements ActionListener {
 		// method
 		secondButton = createButton("400)");
 		// 10. Add the secondButton to the quizPanel
-		
+		quizPanel.add(secondButton);
 		// 11. Add action listeners to the buttons (2 lines of code)
-		
+		firstButton.addActionListener(null);
+		secondButton.addActionListener(null);
 		// 12. Write the code to complete the actionPerformed() method below
 		
 		// 13. Add buttons so that you have $200, $400, $600, $800 and $1000 questions
-			
+		thirdButton = createButton("$600");	
+		fourthButton = createButton("$800");
+		fifthButton = createButton("$1000");
+		quizPanel.add(thirdButton);
+		quizPanel.add(fourthButton);
+		quizPanel.add(fifthButton);
+		thirdButton.addActionListener(null);
+		fourthButton.addActionListener(null);
+		fifthButton.addActionListener(null);
 		 /*
 		 * [optional] Use the showImage or playSound methods when the user answers a
 		 * question
@@ -93,14 +103,14 @@ public class Jeopardy implements ActionListener {
 	private JButton createButton(String dollarAmount) {
 		
 		// Create a new JButton
-
+JButton button = new JButton();
 		// Set the text of the button to the dollarAmount
-
+button.setText("$600");
 		// Increment the buttonCount (this should make the layout vertical)
 
 		// Return your new button instead of the temporary button
-
 		return new JButton("temporary button");
+		
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -110,17 +120,30 @@ public class Jeopardy implements ActionListener {
 
 		JButton buttonPressed = (JButton) e.getSource();
 		// If the buttonPressed was the firstButton
-
+		if(buttonPressed.equals(firstButton)) {
+			askQuestion("What do you call the code that is first run when making a new object?", "The constructor", 600);
+		}
 			// Call the askQuestion() method
- 
+		
 		// Complete the code in the askQuestion() method. When you play the game, the score should change.
 
 		// If the buttonPressed was the secondButton
-
+		if(buttonPressed.equals(secondButton)){
+			askQuestion("What character is at the end of every java statement?", "A semicolon", 400);
+		}
+		if(buttonPressed.equals(thirdButton)) {
+			askQuestion("The special java keyword that's used to create objects", "What is 'new'", 700);
+		}
+		if(buttonPressed.equals(fourthButton)){
+			askQuestion("Is it possible to make a void variable?", "No", 600);
+		}
 			// Call the askQuestion() method with a harder question
 
 		// Clear the text on the button that was pressed (set the button text to nothing)
-
+firstButton.setText(" ");
+secondButton.setText(" ");
+thirdButton.setText(" ");
+fourthButton.setText(" ");
 	}
 
 	private void askQuestion(String question, String correctAnswer, int prizeMoney) {
@@ -131,11 +154,11 @@ public class Jeopardy implements ActionListener {
 		JOptionPane.showMessageDialog(null, "this is where the question will be asked");
 		
 		// Stop the theme music when they have entered their response. Hint: use the sound variable 
-		
+		sound.stop();
 		// If the answer is correct
 
 			// Increase the score by the prizeMoney
-
+		
 			// Pop up a message to tell the user they were correct
 
 		// Otherwise
